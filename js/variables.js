@@ -49,16 +49,18 @@ const stockProductos = [
 
 const productos = stockProductos.map((prod)=>prod.sabor)
 console.log(productos) 
-let carrito = []
+const carrito = []
 
 const tarjetas = document.getElementById("tarjetas")
+const divCarrito = document.getElementById("carrito")
 
 function tarjetasProductos () {
-        for (const producto of stockProductos){
+        stockProductos.forEach((producto) => {
         tarjetas.innerHTML += `
-        <div class="card col" style="width: 18rem;">
-                <img src="${producto.foto}" class="card-img-top" alt="...">
-                <div class="card-body">
+        <div class="col">
+                <div class= "card"
+                        <div class="card-body">
+                        <img src="${producto.foto}" class="card-img-top" alt="...">
                         <h2 class="card-title">
                                 ${producto.sabor}
                         </h2>
@@ -66,12 +68,13 @@ function tarjetasProductos () {
                                 ${producto.descripcion}
                         </p>
                         <button id="btn${producto.id}" class="btn btn-primary ">
-                                $${producto.precio}
+                                Agregar al carrito:  $${producto.precio}
                         </button>
+                        </div>
                 </div>
         </div>
         `;
-        } 
+        });
         stockProductos.forEach((producto) => {
                 document.getElementById(`btn${producto.id}`).addEventListener("click",function(){
         agregarAlCarrito(producto);
@@ -81,9 +84,20 @@ function tarjetasProductos () {
 
 tarjetasProductos();
 
-function agregarAlCarrito(pedido) {
-        carrito.push(pedido);
-        console.table(carrito);
-        alert("Has agregado al carrito " +pedido.sabor);
+function agregarAlCarrito(producto) {
+        let existe = carrito.some((productoSome)=> productoSome.id === producto.id);
+        if (existe === false) {
+                producto.cantidad = 1;
+                carrito.push(producto);
+        }else{
+                let findProd = carrito.find((findProducto) => findProducto.id === producto.id);
+                findProd.cantidad++
+        }
+        alert("Has agregado al carrito " +producto.sabor)
 }
 
+function guardarCarrito () {
+let carritoAlmacenado = JSON.stringify (carrito);
+localStorage.setItem("Carrito", carritoAlmacenado);
+}
+guardarCarrito ();

@@ -1,3 +1,71 @@
-.fondo {
-    background-color: blue;
+@import url("https://fonts.googleapis.com/css2?family=Macondo&family=Roboto:ital,wght@0,100;0,400;0,700;1,100&display=swap");
+* {
+    margin: 0px;
+    padding: 0;
+    font-family: "Macondo", cursive;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./pexels-fwstudio-131683.jpg);
+    background-repeat: repeat;
+}
+
+.pieDePagina img {
+    width: 30px;
+    height: 3vh;
+    margin-left: 3px;
+}
+
+header {
+    background-image: linear-gradient(to bottom right, rgb(13, 109, 109) 40%, rgb(45, 213, 182));
+    border-radius: 20px;
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+footer {
+    background-color: #a6cfcd;
+    width: 100%;
+}
+footer img {
+    width: 50px;
+    height: 50px;
+}
+footer p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.mainIndex {
+    margin: 20px 10px 20px 10px;
+}
+.mainIndex h1 {
+    background-color: rgb(28, 58, 58);
+    width: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    color: beige;
+}
+
+.card-body {
+    background-color: #a6cfcd;
+    text-align: center;
+}
+.col img {
+    width: 100%;
+    height: 350px;
+}
+.card-col {
+    background-color: #a6cfcd;
 }
