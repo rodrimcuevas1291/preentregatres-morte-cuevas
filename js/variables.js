@@ -49,7 +49,7 @@ const stockProductos = [
 
 const productos = stockProductos.map((prod)=>prod.sabor)
 console.log(productos) 
-const carrito = []
+const carrito = JSON.parse(localStorage.getItem("Carrito")) || []
 
 const tarjetas = document.getElementById("tarjetas")
 const divCarrito = document.getElementById("carrito")
@@ -94,10 +94,7 @@ function agregarAlCarrito(producto) {
                 findProd.cantidad++
         }
         alert("Has agregado al carrito " +producto.sabor)
+        let carritoAlmacenado = JSON.stringify (carrito);
+        localStorage.setItem("Carrito", carritoAlmacenado);
 }
 
-function guardarCarrito () {
-let carritoAlmacenado = JSON.stringify (carrito);
-localStorage.setItem("Carrito", carritoAlmacenado);
-}
-guardarCarrito ();
